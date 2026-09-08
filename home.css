@@ -1,0 +1,863 @@
+/* --- GLOBAL RESETS & FONTS --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #050505; /* Deep Black */
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* --- SCROLL ANIMATION CLASSES --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- NAVIGATION --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: rgba(5, 5, 5, 0.9);
+    position: fixed;
+    width: 100%;
+    height: 90px;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #333;
+}
+
+.logo-space {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #666;
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), 
+                url('https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+    background-blend-mode: saturation; 
+}
+
+.hero-content h1 {
+    font-size: 80px;
+    margin-bottom: 20px;
+    text-shadow: 4px 4px 0px #222;
+}
+
+.hero-content p {
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 40px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    opacity: 0.85;
+    text-shadow: 2px 2px 5px grey;
+}
+
+/* --- BUTTONS --- */
+.btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background-color: transparent;
+    color: white;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    border: 2px solid #fff;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: white;
+    color: black;
+}
+
+/* --- ABOUT SECTION --- */
+.about {
+    padding: 120px 10%;
+    background-color: #0a0a0a;
+    border-bottom: 1px solid #222;
+    position: relative;
+}
+
+.about-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.about-header h2 {
+    font-size: 50px;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.about-header .subtitle {
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    letter-spacing: 5px;
+    color: #777;
+    text-transform: uppercase;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.about-text p {
+    color: #aaa;
+    line-height: 1.8;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    text-align: justify;
+    border-left: 2px solid #333;
+    padding-left: 20px;
+    transition: border-color 0.3s ease;
+}
+
+.about-text p:hover {
+    border-left-color: #fff;
+    color: #ddd;
+}
+
+.about-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.photo-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.photo-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #333;
+    background-color: #000;
+}
+
+.photo-card.vertical {
+    height: 100%;
+}
+
+.photo-card.horizontal {
+    height: calc(50% - 7.5px);
+}
+
+.photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(120%);
+    opacity: 0.85;
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.photo-card:hover img {
+    transform: scale(1.08);
+    filter: grayscale(100%) contrast(150%);
+    opacity: 1;
+}
+
+/* --- OUR EVENTS SECTION --- */
+.events-section {
+    padding: 120px 10%;
+    background-color: #050505;
+    border-bottom: 1px solid #222;
+}
+
+.events-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.events-header h2 {
+    font-size: 50px;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.events-header .subtitle {
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    letter-spacing: 5px;
+    color: #777;
+    text-transform: uppercase;
+}
+
+.events-slider-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.events-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid #333;
+    background-color: #000;
+    border-radius: 4px;
+    touch-action: pan-x pan-y;
+}
+
+.events-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.event-card {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 480px;
+    scroll-snap-align: start;
+    position: relative;
+    overflow: hidden;
+}
+
+.event-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+/* Black gradient overlay at bottom for visibility */
+.event-default-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 30px 20px 30px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.6) 60%, transparent 100%);
+    transition: opacity 0.4s ease;
+    z-index: 2;
+}
+
+.event-default-title h3 {
+    color: #ffffff;
+    font-size: 32px;
+    letter-spacing: 2px;
+}
+
+/* Hover State: Image darkens, title hides, paragraph overlay appears */
+.event-hover-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.88);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 3;
+}
+
+.event-hover-info h3 {
+    font-size: 30px;
+    color: #fff;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #555;
+    padding-bottom: 10px;
+}
+
+.event-hover-info p {
+    color: #ddd;
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 650px;
+}
+
+.event-card:hover img {
+    transform: scale(1.05);
+    filter: brightness(0.4);
+}
+
+.event-card:hover .event-default-title {
+    opacity: 0;
+}
+
+.event-card:hover .event-hover-info {
+    opacity: 1;
+}
+
+/* Navigation Dots */
+.events-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.events-dots .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #333;
+    border: 1px solid #555;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.events-dots .dot.active {
+    background-color: #ffffff;
+    transform: scale(1.2);
+    border-color: #ffffff;
+}
+
+/* --- POST BEARERS SECTION --- */
+.team-section {
+    padding: 120px 10%;
+    background-color: #050505;
+    border-bottom: 1px solid #222;
+}
+
+.team-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.team-header h2 {
+    font-size: 50px;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.team-header .subtitle {
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    letter-spacing: 5px;
+    color: #777;
+    text-transform: uppercase;
+}
+
+/* PC Flexbox layout centering bottom row automatically */
+.team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.member-card {
+    flex: 0 1 calc(25% - 22.5px);
+    min-width: 220px;
+    background-color: #0d0d0d;
+    border: 1px solid #222;
+    padding: 25px 20px;
+    text-align: center;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.member-card:hover {
+    border-color: #555;
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+
+.mobile-socials {
+    display: none; /* Hidden on Desktop */
+}
+
+.profile-pic-container {
+    width: 130px;
+    height: 130px;
+    margin: 0 auto 20px auto;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #333;
+    background-color: #1a1a1a;
+    transition: border-color 0.3s;
+}
+
+.member-card:hover .profile-pic-container {
+    border-color: #fff;
+}
+
+.member-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.default-avatar {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #444;
+}
+
+.default-avatar svg {
+    width: 80px;
+    height: 80px;
+}
+
+/* Desktop Social Overlay on Hover */
+.social-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.profile-pic-container:hover .social-overlay {
+    opacity: 1;
+}
+
+.social-overlay a {
+    color: #fff;
+    font-size: 22px;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.social-overlay a:hover {
+    transform: scale(1.25);
+}
+
+.social-overlay a .fa-instagram:hover {
+    color: #e1306c;
+}
+
+.social-overlay a .fa-whatsapp:hover {
+    color: #25d366;
+}
+
+.member-info h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    letter-spacing: 1.5px;
+}
+
+.member-info p {
+    font-size: 13px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* --- GIGS SECTION --- */
+.gigs {
+    padding: 100px 10%;
+    text-align: center;
+    background-color: #050505;
+    border-bottom: 1px solid #222;
+}
+
+.gigs h2 {
+    font-size: 50px;
+    margin-bottom: 50px;
+}
+
+.gig-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.gig-card {
+    background-color: #111;
+    border: 1px solid #333;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.gig-card:hover {
+    transform: scale(1.05);
+}
+
+.gig-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    filter: grayscale(100%);
+}
+
+.gig-info {
+    padding: 20px;
+}
+
+.gig-info h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.gig-info p {
+    color: #888;
+}
+
+/* --- SOCIAL MEDIA SECTION --- */
+.social-section {
+    padding: 120px 10%;
+    background-color: #0a0a0a;
+    text-align: center;
+}
+
+.social-header {
+    margin-bottom: 60px;
+}
+
+.social-header h2 {
+    font-size: 50px;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.social-header .subtitle {
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    letter-spacing: 5px;
+    color: #777;
+    text-transform: uppercase;
+}
+
+.social-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.social-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 35px 20px;
+    background-color: #000;
+    border: 1px solid #222;
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.social-icon {
+    font-size: 36px;
+    margin-bottom: 15px;
+    color: #aaa;
+    transition: all 0.3s ease;
+}
+
+.social-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: #888;
+    transition: color 0.3s ease;
+}
+
+.social-card:hover {
+    transform: translateY(-8px);
+    border-color: #ffffff;
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.05);
+}
+
+.social-card:hover .social-icon,
+.social-card:hover .social-name {
+    color: #ffffff;
+}
+
+.social-card.instagram:hover .social-icon { color: #e1306c; }
+.social-card.youtube:hover .social-icon { color: #ff0000; }
+.social-card.facebook:hover .social-icon { color: #1877f2; }
+.social-card.linkedin:hover .social-icon { color: #0a66c2; }
+
+/* --- FOOTER --- */
+.footer {
+    padding: 30px;
+    text-align: center;
+    background-color: #000;
+    color: #555;
+    font-size: 14px;
+}
+
+/* --- MOBILE RESPONSIVENESS & ADJUSTMENTS --- */
+@media (max-width: 1100px) {
+    .member-card {
+        flex: 0 1 calc(33.333% - 20px);
+    }
+}
+
+@media (max-width: 900px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Navbar in Phone View */
+    .navbar {
+        height: 120px;
+        padding: 15px 20px;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .hero {
+        padding-top: 120px;
+    }
+
+    /* 1. ABOUT US: Remove images behind text, keep clean paragraphs only */
+    .about {
+        padding: 80px 20px;
+    }
+
+    .about-grid {
+        display: block;
+    }
+
+    .about-gallery {
+        display: none !important; /* Hide background image gallery completely */
+    }
+
+    .about-text {
+        position: static;
+        z-index: 1;
+    }
+
+    .about-text p {
+        color: #aaa;
+        background: transparent;
+        padding: 0;
+        border-radius: 0;
+        border-left: 2px solid #333;
+        padding-left: 15px;
+    }
+
+    /* 2. OUR EVENTS: Slide entire event card unit horizontally */
+    .events-section {
+        padding: 80px 5%;
+    }
+
+    .events-slider-wrapper {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .events-slider {
+        display: flex;
+        width: 100%;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        touch-action: pan-x pan-y;
+        border: 1px solid #333;
+        border-radius: 4px;
+        background-color: #000;
+    }
+
+    .event-card {
+        flex: 0 0 100%;
+        width: 100%;
+        min-width: 100%;
+        height: 380px;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+        position: relative;
+        box-sizing: border-box;
+    }
+
+    .event-default-title h3 {
+        font-size: 22px;
+    }
+
+    .event-hover-info {
+        padding: 20px;
+    }
+
+    .event-hover-info h3 {
+        font-size: 22px;
+    }
+
+    .event-hover-info p {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    /* 3. POST BEARERS: Scroll horizontally only when in section */
+    .team-section {
+        padding: 80px 5%;
+    }
+
+    .team-grid {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        touch-action: pan-x pan-y;
+        gap: 15px;
+        padding: 15px 5px;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .team-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .member-card {
+        flex: 0 0 170px;
+        min-width: 170px;
+        scroll-snap-align: center;
+        padding: 15px 10px;
+        position: relative;
+    }
+
+    .profile-pic-container {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 10px;
+    }
+
+    .default-avatar svg {
+        width: 50px;
+        height: 50px;
+    }
+
+    .social-overlay {
+        display: none;
+    }
+
+    /* Clickable Top Corner Icons for Mobile */
+    .mobile-socials {
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        z-index: 10;
+    }
+
+    .mobile-socials a {
+        color: #fff;
+        font-size: 16px;
+        opacity: 0.9;
+        padding: 4px;
+    }
+
+    .mobile-socials a .fa-instagram {
+        color: #e1306c;
+    }
+
+    .mobile-socials a .fa-whatsapp {
+        color: #25d366;
+    }
+
+    .member-info h3 {
+        font-size: 16px;
+    }
+
+    .member-info p {
+        font-size: 11px;
+    }
+
+    .hero-content h1 {
+        font-size: 45px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    /* Mobile Social Grid */
+    .social-section {
+        padding: 80px 5%;
+    }
+
+    .social-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    .social-card {
+        padding: 25px 15px;
+    }
+}
